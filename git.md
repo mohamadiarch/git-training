@@ -17,7 +17,7 @@ if you add a file into staged and edited it after that ===> modified
     M means: Modified 
     U means: Untracked
     A: means Index Added ==> after U
-    Nothing means: committed
+    Nothing means: after commit
 
 
 3. in Editor panel of vscode (user interface) (click it):
