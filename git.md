@@ -12,9 +12,14 @@ if you create a file but did not add it to stage ===> untracked
 if you add a file into staged and edited it after that ===> modified
 
 
-## commands
-git add 5.js != git restore --staged 5.js ===>You can't undo a git restore
-create a file but 
+## restore
+You can't undo a git restore ===> it is dangerous
+1. 
+touch 5.js then edit it and then `git add 5.js` then `git statue` ===> `git restore --staged 5.js` ===> nothing to see in vscode but you can see what happened with `git status` ===> this command (restore --staged) is an undo for `git add .`
+
+2. 
+create a file but do not use `git add .` then `git status` ===> `git restore 5.js` ===>
+you can see something in vscode ===> 5.js will disappear ===> this command (`git restore`) will delete all files that they are not added to stage 
 
 ## vscode
 1. you can use "cls" for clear terminal in vscode
