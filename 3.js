@@ -10,3 +10,6 @@ console.log("I write this in branch 1")
 
 
 console.log("in brnach2 I write this after commit in branch 1")
+
+
+console.log("I want to use git checkout with no commit")
