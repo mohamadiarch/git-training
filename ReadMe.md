@@ -1,6 +1,5 @@
 ---
- GIT CHEATSHEET
- DOCUMENTATION: https://git-scm.com/
+DOCUMENTATION: https://git-scm.com/
 ---
 
 
