@@ -24,3 +24,5 @@ var n;
 
 
 console.log("after n")
+
+console.log("git add -a for modified files")
