@@ -1,5 +1,6 @@
 ---
-DOCUMENTATION: https://git-scm.com/
+ GIT CHEATSHEET
+ DOCUMENTATION: https://git-scm.com/
 ---
 
 
@@ -11,11 +12,14 @@ In this repo I want to write some notes and train git commands for myself.
 + https://cheatography.com/itsellej/cheat-sheets/git-commands/
 + https://quickref.me/markdown.html
 + https://github.com/LeCoupa/awesome-cheatsheets/blob/master/tools/git.sh
+https://github.com/arslanbilal/git-cheat-sheet#readme
+https://github.com/git-tips/tips#readme
 + https://learntheweb.courses/topics/markdown-yaml-cheat-sheet/
 + https://devhints.io/
 + https://developercheatsheets.com/
 ## git glassory
 https://git-scm.com/docs/gitglossary
+https://gitready.com/
 ## book
 https://git-scm.com/book/en/v2
 
@@ -52,6 +56,7 @@ Git essentially has 4 main statuses for the files in your local repo:
 ## terms
 "origin" = is a shorthand name for the remote repository that a project was originally cloned from
 "HEAD" = latest commit ===> cat .git/refs/heads/master ==> commit ID of the HEAD
+upstream = refers to the original repo or a branch
 
 
 
@@ -75,6 +80,9 @@ Git essentially has 4 main statuses for the files in your local repo:
 ## log
 + git status
 + git status -s ===> better listing
+git log --stat -M
+git log --reverse
+git log --oneline | tail -n 2
 + git checkout ===> list of A,U,M files
 + git diff ===> find modified files (can not find U and A files)
 + git diff --staged ===> find A and M files (can not find U files)
@@ -89,10 +97,18 @@ Git essentially has 4 main statuses for the files in your local repo:
 + git show 3ec793f72ed79503a546e4703167272ed133494c ====> show changes 
 + git branch -vv || branch || branch -av ===> list of branches
 + git log --stat -M ===> summary of how much one file was changed compared to another
+
+
+
+
+## graph
++ you can not see new branch visulization in `git log --graph` until merge ===> for see that graph you should checkout to its branch
++ you can merge a branch into a commit but you can not see that branch in main graph with `git log --graph` but you can see that branch in commit graph seprately
 + git log --pretty=oneline --graph --decorate --all ===> cool visualization
 
 
-
+## search 
+git log --grep="your word" ===> find "your word" in your commits
 
 
 ## stash
@@ -123,6 +139,43 @@ A lightweight tag is very much like a branch that doesn’t change
 + git log --pretty=oneline ===> log commits and tags	
 + git tag -l ===> list of tags
 + gut tag -d TAGNAME ===> delete a tag
+
+
+## branch 
++ you can transfer changes form one branch with `git checkout` but when you commit them changes in one branch after that you can not transfer them by `git checkout`
++ when you use `git push origin master` you do not push in other branches, so you can not see other branches change in github remote directory
++ git branch b3 on branch master ===> create a new branch b3 from master
++ git branch b4 on branch b2 ====> create a new branch b3 from b4 (name b3 is on master you can not use in for any other branch)
+
+## merge
++ merge into
++ merge === git merge + (into current) + (BRANCHX) ===> we can delete into ====> like programing a=b ===> how? just copy BRANCHX into current and nothing else (delete nothing)
++ git merge master b2 ====> copy branch b2 in master ===> merge into master, bring from b2
++ git merge b2 ===> copy (merge) b2 in current branch
+
+
+
+## rebase
++ rebase x from
++ rebase === build like building
++ rebase === git build + (BRANCHX) + (from current) ===> we can delete from ===> like programing a=b ===> how? group current branch, make current as linear branch, add to the end of BRANCHX
++ master will not change + develope branch make linear
++ git rebase master ====> master is main line of graph, add the whole of this current branch at the end of master ===> first group this current branch then add this group at the end of master
++ git rebase master ====> git rebase at the end of master  
++ git rebase master develop ===> group develope and add it at the end of master ===> group develope and build master
+
+
+## cherry-pick
++ git cherry-pick is for bringing an interesting commit from one line of development to another. A classic example is backporting a security fix made on an unstable development branch to a stable (maintenance) branch, where a merge makes no sense, as it would bring a whole lot of unwanted changes.
+
+
+## commit 
+git config --global alias.add-commit '!git add -A && git commit' ===> add and commit in one command
+git add-commit -m 'My commit message'
+
+
+## checkout 
++ git checkout == git switch
 
 -------------------------------------
 
@@ -164,9 +217,6 @@ and you can commit for this movement ===> -m "Modified directory structure"
 
 rename ===> git mv 1.js rename.js 
 move ===> git mv 1.js src/  
-
-
-
 
 ## clean 
 
